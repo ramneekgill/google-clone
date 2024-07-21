@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 import AppsIcon from "@mui/icons-material/Apps";
 import { Avatar } from "@mui/material";
+import Search from "../components/Search";
 
 function Home() {
   return (
@@ -23,6 +24,9 @@ function Home() {
           src="https://cdn.logojoy.com/wp-content/uploads/20230801145635/Google_logo_2013-2015-600x206.png"
           alt=""
         />
+        <div className="home__inputContainer">
+          <Search />
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 export default {
-  //set to variable value
   kind: "customsearch#search",
   url: {
     type: "application/json",

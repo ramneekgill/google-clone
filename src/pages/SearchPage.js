@@ -2,7 +2,6 @@ import React from "react";
 import "./SearchPage.css";
 import { useStateValue } from "../StateProvider";
 import useGoogleSearch from "../useGoogleSearch";
-import Response from "../Response";
 import { Link } from "react-router-dom";
 import Search from "../components/Search";
 import SearchIcon from "@mui/icons-material/Search";
@@ -13,9 +12,8 @@ import RoomIcon from "@mui/icons-material/Room";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 function SearchPage() {
-  const [{ term }, dispatch] = useStateValue();
-  //const { data } = useGoogleSearch(term);
-  const data = Response;
+  const [{ term }] = useStateValue();
+  const { data } = useGoogleSearch(term);
   return (
     <div className="searchPage">
       <div className="searchPage__header">

@@ -8,8 +8,8 @@ import { useStateValue } from "../StateProvider";
 import { actionTypes } from "../reducer";
 
 function Search({ hideButtons = false }) {
-  const [{}, dispatch] = useStateValue();
-  const [input, setInput] = useState("");
+  const [{ term }, dispatch] = useStateValue();
+  const [input, setInput] = useState(term);
   const navigate = useNavigate();
   const search = (e) => {
     e.preventDefault();

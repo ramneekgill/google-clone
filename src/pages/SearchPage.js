@@ -16,7 +16,6 @@ function SearchPage() {
   const [{ term }, dispatch] = useStateValue();
   //const { data } = useGoogleSearch(term);
   const data = Response;
-  console.log(data);
   return (
     <div className="searchPage">
       <div className="searchPage__header">
@@ -73,25 +72,27 @@ function SearchPage() {
             About {data?.searchInformation.formattedTotalResults} results (
             {data?.searchInformation.formattedSearchTime} seconds) for {term}
           </p>
-          {data?.items.map((item) => (
-            <div className="searchPage__result">
-              <Link to={item.link}>
-                {item.pagemap?.cse_image?.length > 0 &&
-                  item.pagemap?.cse_image[0]?.src && (
-                    <img
-                      className="searchPage__resultImage"
-                      src={item.pagemap?.cse_image[0]?.src}
-                      alt=""
-                    />
-                  )}
-                {item.displayLink}
-              </Link>
-              <Link className="searchPage__resultTitle" to={item.link}>
-                <h2>{item.title}</h2>
-              </Link>
-              <p className="searchPage__resultSnippet">{item.snippet}</p>
-            </div>
-          ))}
+          {data?.items.map((item) => {
+            return (
+              <div className="searchPage__result">
+                <a href={item.link}>
+                  {item.pagemap?.cse_image?.length > 0 &&
+                    item.pagemap?.cse_image[0]?.src && (
+                      <img
+                        className="searchPage__resultImage"
+                        src={item.pagemap?.cse_image[0]?.src}
+                        alt=""
+                      />
+                    )}
+                  {item.displayLink}
+                </a>
+                <a className="searchPage__resultTitle" href={item.link}>
+                  <h2>{item.title}</h2>
+                </a>
+                <p className="searchPage__resultSnippet">{item.snippet}</p>
+              </div>
+            );
+          })}
         </div>
       )}
     </div>

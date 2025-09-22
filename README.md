@@ -1,6 +1,7 @@
 # DEPLOYED APP URL
 
 https://clone-40dfc.web.app
+A clone of google search using React that allows you to make queries.
 
 # Getting Started with Create React App
 
